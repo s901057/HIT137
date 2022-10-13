@@ -1,0 +1,212 @@
+####
+# NICOLA MATARAZZO:
+# 901057
+####
+import math #for question 5
+
+userchoice = 1
+while userchoice != 0:
+    userchoice = input("Input betwwen 1 to 4 run the progream or Input 0 to terminate ")
+    # -------------------------------------------------QUESTION 1
+    if int(userchoice) == 1:
+
+        # create a string
+        my_str = "56aAww1984sktr235270aYmn145ss785fsq31D0"
+        sCurrentChar = ""
+        sAlphabetical = ""
+        sNumericali = ""
+        iAsciiVal = 0
+        sCurrentChar = ""
+        # https://www.rapidtables.com/code/text/ascii-table.html
+
+        # loop through a string using range() function
+        for char_index in range(0, len(my_str)):
+            # print(my_str[char_index])
+            sCurrentChar = my_str[char_index]
+            iAsciiVal = ord(my_str[char_index])
+            # is a Number?
+            if iAsciiVal >= 48 and iAsciiVal <= 57:
+                sNumericali = sNumericali + sCurrentChar
+            # is a Alphabetical CAPITAL?
+
+            if iAsciiVal >= 65 and iAsciiVal <= 90:
+                sAlphabetical = sAlphabetical + sCurrentChar
+            # is a Alphabetical CAPITAL?
+            if iAsciiVal >= 97 and iAsciiVal <= 122:
+                sAlphabetical = sAlphabetical + sCurrentChar
+
+        print(sNumericali)
+        print(sAlphabetical)
+
+        # create a string
+        my_str = "56aAww1984sktr235270aYmn145ss785fsq31D0"
+        sCurrentChar = ""
+        sAlphabetical = ""
+        sNumericali = ""
+        iAsciiVal = 0
+        sCurrentChar = ""
+        # https://www.rapidtables.com/code/text/ascii-table.html
+
+        # loop through a string using range() function
+        for char_index in range(0, len(my_str)):
+            # print(my_str[char_index])
+            sCurrentChar = my_str[char_index]
+            iAsciiVal = ord(my_str[char_index])
+            # is a Number?
+            if iAsciiVal >= 48 and iAsciiVal <= 57:
+                sNumericali = sNumericali + sCurrentChar
+            # is a Alphabetical CAPITAL?
+
+            if iAsciiVal >= 65 and iAsciiVal <= 90:
+                sAlphabetical = sAlphabetical + sCurrentChar
+            # is a Alphabetical CAPITAL?
+            if iAsciiVal >= 97 and iAsciiVal <= 122:
+                sAlphabetical = sAlphabetical + sCurrentChar
+
+        print(sNumericali)
+        print(sAlphabetical)
+
+        print("Solution 1 \n")
+    #-------------------------------------------------QUESTION 2
+    elif int(userchoice) == 2:
+        # create a string
+        my_str = "1234567"
+        sCurrentChar = ""
+        sAlphabetical = ""
+        sNumericali = ""
+        iAsciiVal = 0
+        sCurrentChar = ""
+
+        iCriteria1 = 0  # At least 2 letters between [a-z]
+        iCriteria2 = 0  # At least 3 numbers between [0-9]
+        iCriteria3 = 0  # At least 4 letters between [A-Z]
+        iCriteria4 = 0  # At least 2 characters from [$#@!&]
+        iCriteria5 = 0  # Minimum length of password: 11
+        iCriteria6 = 0  # Maximum length of password: 18
+
+        # https://www.rapidtables.com/code/text/ascii-table.html
+
+        # loop through a string using range() function
+        for char_index in range(0, len(my_str)):
+            # print(my_str[char_index])
+            sCurrentChar = my_str[char_index]
+            iAsciiVal = ord(my_str[char_index])
+
+            if iAsciiVal >= 97 and iAsciiVal <= 122:
+                iCriteria1 = iCriteria1 + 1
+            if iAsciiVal >= 48 and iAsciiVal <= 57:
+                iCriteria2 = iCriteria2 + 1
+            if iAsciiVal >= 65 and iAsciiVal <= 90:
+                iCriteria3 = iCriteria3 + 1
+            if sCurrentChar in '$#@!&':
+                iCriteria4 = iCriteria4 + 1
+            if len(my_str) > 10:
+                iCriteria5 = 1
+            if len(my_str) < 19:
+                iCriteria6 = 1
+
+        if iCriteria1 < 2:
+            print('Password Must Contain at least 2 letters between [a-z')
+        if iCriteria2 < 3:
+            print('Password Must Contain at least 3 numbers between [0-9]')
+        if iCriteria3 < 4:
+            print('Password Must Contain at least 4 letters between [A-Z]')
+        if iCriteria4 == 0:
+            print('Password Must Contain at least one of these $#@!&')
+        if iCriteria5 != 1:
+            print('Password Must Be Greater Than 11 Characters')
+        if iCriteria6 != 1:
+            print('Password Must Be Less Than 18 Characters')
+
+        print("Solution 2 \n")
+    # -------------------------------------------------QUESTION 3
+
+    elif int(userchoice) == 3:
+        def AlphabetOrder(word):
+            currentLetter = 'a'
+            prevLetter = 'a'
+            for i in range(len(word)):
+                if i == 0:
+                    currentLetter = word[i].lower()
+                    prevLetter = word[i].lower()
+                else:
+                    currentLetter = word[i].lower()
+                    if currentLetter < prevLetter:
+                        return False
+
+                    prevLetter = currentLetter
+            return True
+
+
+        textFile = open("c:/temp/words.txt", "r")
+        listOfLines = textFile.readlines()
+        for line in listOfLines:
+            wordsList = line.split(' ')
+            for i in range(len(wordsList)):
+                wordsList[i] = wordsList[i].replace('\n', '')
+                if AlphabetOrder(wordsList[i]):
+                    print(wordsList[i])
+        textFile.close()
+
+        print("Solution 3 \n")
+
+    # -------------------------------------------------QUESTION 4
+    elif int(userchoice) == 4:
+
+        # define the ciphered message
+        ciphered_message = "VZ FRYSVFU VZCNGVRAG NAQ N YVGGYR VAFRPHER V ZNXR ZVFGNXRF V NZ BHG BS PBAGEBY NAQ NG GVZRF UNEQ GB UNAQYR OHG VS LBH PNAG UNAQYR ZR NG ZL JBEFG GURA LBH FHER NF URYY QBAG QRFREIR ZR NG ZL ORFG ZNEVYLA ZBAEBR"
+        # define a string for all uppercase letters
+        letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        # loop for keys 1 to 26(inclusive)
+        for key in range(1, 27):
+            # set deciphered_message to empty string
+            deciphered_message = ""
+            # loop over each letter of ciphered_message
+            for ch in ciphered_message:
+                # convert ch to uppercase
+                ch = ch.upper()
+                # ch is an uppercase letter, decipher it using the key and append it to deciphered_message
+                if ch >= 'A' and ch <= 'Z':
+                    # get the index of ch in letters using find and subtract it with key and get the letter at that index from letters string
+                    deciphered_message = deciphered_message + letters[letters.find(ch) - key]
+                else:  # ch is not a letter, append ch to deciphered_message
+                    deciphered_message = deciphered_message + ch
+            # display the key and corresponding deciphered message
+            print("Key = {}\nDeciphered message: {}\n".format(key, deciphered_message))
+        # Key = 13 gives the original quote
+        # end of program
+
+        print("Solution 4 \n")
+    # -------------------------------------------------QUESTION 5
+    elif int(userchoice) == 5:
+        # import math module
+        pos = [0, 0]
+        # starting position always x = 0, y = 0 (center)
+        while True:
+            s = input("Enter step:. ('up 5', 'down 3', e.g.) ")
+            if not s:
+                break
+            movement = s.split(" ")  # splits string into list
+            direction = movement[0]
+            step = int(movement[1])
+            if direction == "up":  # Since direction increase going up we are adding distance
+                pos[1] += step
+            elif direction == "down":  # down is opposite therefore decrease
+                pos[1] -= step
+            elif direction == "left":  # left subtracts on the x axis
+                pos[0] -= step
+            elif direction == "right":  # right increases
+                pos[0] += step
+            else:
+                pass
+        distance = (round(math.sqrt(pos[1] * pos[1] + pos[0] * pos[0])))
+
+        # Since the starting position is always (0, 0) the formula to find the distance becomes square root of (x1)^2 + (y1)^2 and rounds it
+        print("The distance of car from starting position is: {}KM.".format((distance)))
+
+        print("Solution 5 \n")
+
+    else:
+        print("Program exit!")
+        break
+    # -------------------------------------------------END!!!!!!!!!!!!!!
